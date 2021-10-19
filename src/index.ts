@@ -1,4 +1,5 @@
 interface ModalContext {
+    scrollY: number;
     style: HTMLStyleElement;
     container: HTMLDivElement;
     body: HTMLDivElement;
@@ -92,6 +93,7 @@ function initBase(): ModalContext {
 
     document.body.appendChild(container);
     return {
+        scrollY,
         style,
         container,
         body,
@@ -105,6 +107,7 @@ function clearBase(context: ModalContext): void {
     document.body.classList.remove("pajs-modal-open");
     context.style.remove();
     context.container.remove();
+    window.scrollTo(0, context.scrollY);
 }
 
 function createButton(label: string): HTMLDivElement {
