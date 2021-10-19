@@ -13,7 +13,7 @@ function initBase(): ModalContext {
     style.type = "text/css";
     style.innerText = `
 .pajs-modal-open {
-    top: ${scrollY}px;
+    top: ${-scrollY}px;
     width: 100%;
     position: fixed;
 }
