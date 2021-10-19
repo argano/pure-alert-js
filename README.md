@@ -7,6 +7,20 @@
 $ npm install pure-alert-js
 ```
 
+## Usage
+
+```
+import { alert, confirm } from "pure-alert-js";
+
+...
+
+await alert("hello");
+
+if (!await confirm("okay?")) {
+    // not okay
+}
+// okay
+```
 ## Contribution
 
 1. Fork it ( http://github.com/argano/pure-alert-js )
