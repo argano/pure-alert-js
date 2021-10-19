@@ -1,0 +1,22 @@
+{
+  "name": "pure-alert-js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "build/index.js",
+  "author": "Argano Inc.",
+  "repository": "git@github.com:argano/pure-alert-js.git",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "clean": "del-cli build",
+    "prepublish": "npm run clean && npm run build",
+    "test": "echo \"no test\"",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "del-cli": "^2.0.0",
+    "typescript": "^4.4.3"
+  },
+  "typings": "build/index.d.ts"
+}
