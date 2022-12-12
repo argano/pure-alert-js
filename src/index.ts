@@ -117,11 +117,11 @@ function createButton(label: string): HTMLDivElement {
     return btn;
 }
 
-export async function alert(message: string): Promise<void> {
+export async function alert(message: string, opt?: { okLabel?: string }): Promise<void> {
     const context = initBase();
     context.message.innerText = message;
 
-    const okButton = createButton("OK");
+    const okButton = createButton((opt && opt.okLabel) ? opt.okLabel : "OK");
     context.buttons.appendChild(okButton);
 
     await new Promise<void>(resolve => {
@@ -132,14 +132,14 @@ export async function alert(message: string): Promise<void> {
     });
 }
 
-export async function confirm(message: string): Promise<boolean> {
+export async function confirm(message: string, opt?: { okLabel?: string, cancelLabel?: string}): Promise<boolean> {
     const context = initBase();
     context.message.innerText = message;
-    const cancelButton = createButton("キャンセル");
+    const cancelButton = createButton((opt && opt.cancelLabel) ? opt.cancelLabel : "Cancel");
     cancelButton.style.backgroundColor = "#666";
     context.buttons.appendChild(cancelButton);
 
-    const okButton = createButton("OK");
+    const okButton = createButton((opt && opt.okLabel) ? opt.okLabel : "OK");
     context.buttons.appendChild(okButton);
 
     return await new Promise<boolean>(resolve => {
